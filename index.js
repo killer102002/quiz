@@ -99,6 +99,7 @@ const quizData = [
       <p>Your score: ${score}/${quizData.length}</p>
     `;
   }
+  showQuestion();
   let timeLeft = 30; // Set the timer for 30 seconds
 let timerId;
 
@@ -129,4 +130,4 @@ function submitQuiz() {
 
 // Add event listener for the submit button
 document.getElementById('submit').addEventListener('click', submitQuiz);
-  showQuestion();
+
