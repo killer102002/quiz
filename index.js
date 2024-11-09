@@ -99,5 +99,34 @@ const quizData = [
       <p>Your score: ${score}/${quizData.length}</p>
     `;
   }
-  
+  let timeLeft = 30; // Set the timer for 30 seconds
+let timerId;
+
+function startTimer() {
+  timerId = setInterval(() => {
+    if (timeLeft <= 0) {
+      clearInterval(timerId);
+      // Handle time out (e.g., submit the quiz automatically)
+      alert("Time's up!");
+      document.getElementById('submit').click(); // Simulate submit
+    } else {
+      timeLeft--;
+      document.getElementById('time').textContent = timeLeft;
+    }
+  }, 1000);
+}
+
+// Call startTimer when the quiz starts
+startTimer();
+
+// Your existing quiz logic here...
+
+// Make sure to clear the timer when the quiz is completed
+function submitQuiz() {
+  clearInterval(timerId);
+  // Handle quiz submission logic
+}
+
+// Add event listener for the submit button
+document.getElementById('submit').addEventListener('click', submitQuiz);
   showQuestion();
